@@ -43,7 +43,7 @@
                 return value.value += dataSet;
             }
 
-            fetch(`http://localhost:3000/${dataSet}`, {
+            return fetch(`http://localhost:3000/${dataSet}`, {
                 method: "POST",
                 headers: {
                     'Accept': 'application/json',
