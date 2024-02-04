@@ -15,12 +15,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/value', (req, res) => {
-    const dataCalc = fs.readFileSync(path.join(__dirname, 'data-calc.json'), 'utf-8');
-    const valueCalcObject = JSON.parse(dataCalc);
-
-    fs.writeFileSync(path.join(__dirname, 'data-calc.json'), JSON.stringify(valueCalcObject), 'utf-8');
-    const dataCalcNew = fs.readFileSync(path.join(__dirname, 'data-calc.json'), 'utf-8');
-    res.json(JSON.parse(dataCalcNew));
+    calculator(req, res)
 });
 
 app.post('/plus', (req, res) => {
