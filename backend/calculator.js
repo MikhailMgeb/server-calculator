@@ -7,10 +7,6 @@ function calculator(req, res) {
     const dataCalc = fs.readFileSync(path.join(__dirname, 'data-calc.json'), 'utf-8');
     const valueCalcObject = JSON.parse(dataCalc);
 
-    if (req.url === '/value') {
-        valueCalcObject.value = 0;
-    }
-
     if (req.url === '/plus') {
         valueCalcObject.value = Number(valueCalcObject.value) + Number(numbers);
     }
@@ -26,7 +22,6 @@ function calculator(req, res) {
     if (req.url === '/divide') {
         valueCalcObject.value = Number(valueCalcObject.value) / Number(numbers);
     }
-
 
     fs.writeFileSync(path.join(__dirname, 'data-calc.json'), JSON.stringify(valueCalcObject), 'utf-8');
     const dataCalcNew = fs.readFileSync(path.join(__dirname, 'data-calc.json'), 'utf-8');
